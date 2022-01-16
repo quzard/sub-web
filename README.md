@@ -23,16 +23,16 @@
 ## Docker
 
 ```shell
-docker run -d -p 58080:80 --restart always --name subweb careywong/subweb:latest
+docker run -d -p 58080:80 --restart always --name subweb quzard/sub-web:amd64
 ```
 
 若需要对代码进行修改，你需要在本地构建镜像并运行。
 注：每次修改代码，你都需要重新执行 docker build 来执行打包操作。
 
 ```shell
-docker build -t subweb-local:latest .
+docker build -t 'quzard/sub-web:amd64' .
 
-docker run -d -p 58080:80 --restart always --name subweb subweb-local:latest
+docker run -d -p 58080:80 --restart always --name subweb quzard/sub-web:amd64
 ```
 
 ## Requirements
