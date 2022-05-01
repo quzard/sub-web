@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sub-web:
-    image: quzard/sub-web:amd64
+    image: quzard/sub-web:latest
     container_name: sub-web
     restart: always
     ports:
