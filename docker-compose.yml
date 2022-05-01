@@ -6,7 +6,7 @@ services:
     container_name: sub-web
     restart: always
     ports:
-        - "58080:80"
+        - "0.0.0.0:58080:80"
   utility.watchtower:
     container_name: watchtower_sub-web
     image: containrrr/watchtower:latest
