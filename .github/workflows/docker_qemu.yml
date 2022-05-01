@@ -1,0 +1,42 @@
+name: Docker_qemu
+
+on:
+  schedule:
+    - cron: '05 22 * * *'
+    # cron表达式，时区是UTC时间，比我们早8小时，如上所表示的是每天UTC时间的22点05分整， 北京时间的06点05分（24小时制）
+    # 可在此网站查询UTC时间和北京时间的换算关系 https://datetime360.com/cn/utc-beijing-time/
+  watch:
+    types: started
+
+jobs:     
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          # 所需要的体系结构，可以在 Available platforms 步骤中获取所有的可用架构
+          platforms: linux/amd64,linux/arm64
+          # 给清单打上多个标签
+          tags: |
+            quzard/sub-web:latest
+            quzard/sub-web:${{ steps.date.outputs.today }}            
