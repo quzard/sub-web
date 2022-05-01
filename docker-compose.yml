@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  sub-web:
+    image: quzard/sub-web:amd64
+    container_name: sub-web
+    restart: always
+    ports:
+        - "58080:80"
+  utility.watchtower:
+    container_name: watchtower_sub-web
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400
+    restart: always
