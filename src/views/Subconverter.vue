@@ -268,6 +268,8 @@ export default {
           Surge2: "surge&ver=2",
         },
         customBackend: {
+      "AmyTelecom 提供" :"https://amyconvert.com/sub?",
+      "Nexitally 提供" :"https://api.nexconvert.com/sub?",
 			"sub.id9.cc(品云提供-稳定)": "https://sub.id9.cc/sub?",
 			"api.wcc.best(subconverter作者提供-稳定)":"https://api.wcc.best/sub?",
 			"api.dler.io(lhie1提供-稳定)": "https://api.dler.io/sub?",
@@ -275,6 +277,8 @@ export default {
 			"localhost:25500 本地版": "http://localhost:25500/sub?"
         },
         backendOptions: [
+			{ value: "https://amyconvert.com/sub?" },
+			{ value: "https://api.nexconvert.com/sub?" },
 			{ value: "https://sub.id9.cc/sub?" },
 			{ value: "https://api.wcc.best/sub?" },
 			{ value: "https://api.dler.io/sub?" },
