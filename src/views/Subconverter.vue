@@ -328,7 +328,7 @@ export default {
         ],
         remoteConfig: [
           {
-            label: "自定义",
+            label: "自用",
             options: [
               {
                 label: "自动测速 故障转移 负载均衡 谷歌规则 ",
@@ -336,24 +336,9 @@ export default {
                   "https://raw.githubusercontent.com/Quzard/Clash_Config/master/ACL4SSR_Online_Full_Google_urltest_fallback_load-balance.ini"
               },
               {
-                label: "无自动测速 谷歌规则",
+                label: "默认",
                 value:
-                  "https://raw.githubusercontent.com/Quzard/Clash_Config/master/ACL4SSR_Online_Full_Google_NoAuto.ini"
-              }
-            ]
-          },
-          {
-            label: "Special",
-            options: [
-              {
-                label: "NeteaseUnblock(仅规则，No-Urltest)",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/special/netease.ini"
-              },
-              {
-                label: "Basic(仅GEOIP CN + Final)",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/special/basic.ini"
+                  ""
               }
             ]
           }
